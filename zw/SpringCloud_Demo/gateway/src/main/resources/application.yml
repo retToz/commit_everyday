@@ -1,0 +1,38 @@
+server.port: 8080
+
+spring:
+
+  config:
+    import:
+      - nacos:Log.yml
+
+  application:
+    name: gateway
+
+  cloud:
+    # nacos配置
+    nacos:
+      discovery:
+        server-addr: 192.168.80.128:8848
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        namespace: dev
+#    # gateway路由配置
+#    gateway:
+#      routes:
+#        - id: ServiceB # 路由规则id，自定义，唯一
+#          uri: lb://Service-b # 路由的目标服务，lb代表负载均衡，会从注册中心拉取服务列表
+#          predicates: # 路由断言，判断当前请求是否符合当前规则，符合则路由到目标服务
+#            - Path=/ServiceB/** # 这里是以请求路径作为判断规则
+#            # 完整写法
+#            - name: Custom
+#              args:
+#                arg1: test
+#                arg2: test
+#          filters:
+#            - Custom
+#            # Custom2=test,test
+#            - name: Custom2
+#              args:
+#                arg1: test
+#                arg2: test
