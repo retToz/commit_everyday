@@ -1,0 +1,7 @@
+db:
+  mysql:
+    host: 192.168.80.128
+    port: 3306
+    database: dev
+    username: sue
+    passwd: 123456

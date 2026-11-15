@@ -1,0 +1,32 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: Service-b
+
+  config:
+    import:
+      - nacos:Seata.yml
+
+  cloud:
+    # sentinel 配置
+    sentinel:
+      transport:
+        dashboard: 192.168.80.128:8858 # sentinel 端口
+      http-method-specify: true # 将请求方式作为命名前缀
+    # nacos配置
+    nacos:
+      discovery:
+        # nacos 注册服务端口
+        server-addr: 192.168.80.128:8848
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        namespace: dev
+    # feign 默认连接开销大，可以开启连接池
+    openfeign:
+      okhttp:
+        enabled: true
+feign:
+  sentinel:
+    enabled: true # 开启 openfiegn 对 sentinel 支持
