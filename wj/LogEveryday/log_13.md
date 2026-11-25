@@ -5,9 +5,12 @@
 > <h2>JavaSE</h2>
 > <b>1.Collection</b>
 > - List
->   - ArrayList // 顺序存储， 遍历快
->   - LinkList // 链式存储，插入删除快
-> - Set   // 无序的，不重复， 唯一性
+>   - ArrayList  
+>     - 顺序存储， 遍历快
+>   - LinkList  
+>     - 链式存储，插入删除快
+> - Set   
+>   - 无序的，不重复， 唯一性
 >   - HashSet 
 >     - 原理是：数组+链表+红黑树
 >     - 依靠哈希值计算索引位置，新版本用尾插法
